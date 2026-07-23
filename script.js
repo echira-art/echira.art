@@ -216,13 +216,10 @@ const loaderScenes = [
 
 // Preload loader images
 
-[
-    "images/loader/welcome.png",
-    ...loaderScenes.map(scene => scene.image)
-].forEach(src => {
+loaderScenes.forEach(scene => {
 
     const img = new Image();
-    img.src = src;
+    img.src = scene.image;
 
 });
 
