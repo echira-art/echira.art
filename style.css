@@ -1585,6 +1585,10 @@ html{
 
     text-align:center;
 
+    opacity:0;
+
+    transition:opacity .35s ease;
+
 }
 
 .loader-chibi{
@@ -1592,13 +1596,15 @@ html{
     object-fit:contain;
 
     width:270px;
-    height: auto;
-
-    animation:float 6s ease-in-out infinite;
+    height:auto;
 
     user-select:none;
 
     pointer-events:none;
+
+    opacity:0;
+
+    transition:opacity .25s ease;
 
     animation:loaderFloat 3s ease-in-out infinite;
 

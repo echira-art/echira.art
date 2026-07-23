@@ -214,10 +214,23 @@ const loaderScenes = [
 
 ];
 
+// Preload loader images
+
+[
+    "images/loader/welcome.png",
+    ...loaderScenes.map(scene => scene.image)
+].forEach(src => {
+
+    const img = new Image();
+    img.src = src;
+
+});
+
 // Welcome screen only once per browser session
 
 if(!sessionStorage.getItem("visited")){
 
+    loaderImage.style.opacity = "0";
     loaderImage.src = "images/loader/welcome.png";
     loaderText.textContent = "Ready! Welcome! 💙";
 
@@ -230,10 +243,23 @@ if(!sessionStorage.getItem("visited")){
             Math.floor(Math.random()*loaderScenes.length)
         ];
 
+    loaderImage.style.opacity = "0";
     loaderImage.src = scene.image;
     loaderText.textContent = scene.text;
 
 }
+
+loaderImage.onload = () => {
+
+    loaderImage.style.opacity = "1";
+
+};
+
+setTimeout(() => {
+
+    document.querySelector(".loader-content").style.opacity = "1";
+
+}, 300);
 
 window.addEventListener("load", () => {
 
