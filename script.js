@@ -226,28 +226,14 @@ const loaderScenes = [
 
 });
 
-// Welcome screen only once per browser session
+const scene = loaderScenes[
+    Math.floor(Math.random() * loaderScenes.length)
+];
 
-if(!sessionStorage.getItem("visited")){
+loaderImage.src = scene.image;
+loaderText.textContent = scene.text;
 
-    loaderImage.style.opacity = "0";
-    loaderImage.src = "images/loader/welcome.png";
-    loaderText.textContent = "Ready! Welcome! 💙";
-
-    sessionStorage.setItem("visited","true");
-
-}else{
-
-    const scene =
-        loaderScenes[
-            Math.floor(Math.random()*loaderScenes.length)
-        ];
-
-    loaderImage.style.opacity = "0";
-    loaderImage.src = scene.image;
-    loaderText.textContent = scene.text;
-
-}
+loader.classList.add("show");
 
 loaderImage.onload = () => {
 
